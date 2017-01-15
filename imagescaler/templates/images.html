@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+ 
+<div style="margin: 0 auto; width: 990px">
+ 
+    <ul>
+    {% for img in img_list%}
+        <li><a href="{% url 'image' img.id %}">{{ img.id }}</a></li>
+    {% endfor %}
+    </ul>
+ 
+</div>
+ 
+</body>
+</html>

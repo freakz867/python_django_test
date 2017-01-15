@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+ 
+<div style="margin: 0 auto; width: 990px">
+    {% if error_format %}
+        <h2>{{ error_format }}</h2>
+        <a href="{% url 'upload' %}">Try again</a>
+    {% else %}
+    
+    {% if origin_name %}
+        <h2>{{ origin_name }} (original)</h2>
+        <img src="{{ MEDIA_ROOT }}{{ origin_name }}">
+        <a href="{% url 'upload' %}">Upload another image</a>
+    {% else %}
+    <form method="post" action="/imgscaler/upload" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ userform.as_p }}
+        <input type="submit">
+    </form>
+ 
+    {% endif %}
+
+ 
+    {% endif %}
+ 
+</div>
+ 
+</body>
+</html>

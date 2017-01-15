@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+ 
+<div style="margin: 0 auto; width: 990px">
+ 
+    <form method="post" action="/" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ userform.as_p }}
+        <input type="submit">
+    </form>
+ 
+    <br>
+    <br>
+ 
+    <h2>{{ origin_name }} (original)</h2>
+ 
+    {% if origin_name %}
+        <img src="{{ MEDIA_URL }}{{ origin_name }}">
+    {% endif %}
+ 
+    <br>
+    <br>
+ 
+     <h2>{{ thumb_name }} (150x150)</h2>
+ 
+    {% if thumb_name %}
+        <img src="{{ MEDIA_URL }}{{ thumb_name }}">
+    {% endif %}
+ 
+</div>
+ 
+</body>
+</html>
